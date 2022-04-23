@@ -1,7 +1,7 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.repository.MemberRepository;
+import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @Transactional // 데이터 변경 -> 트렌젝션 안에서 이루어져야 함
 // @AllArgsConstructor // 생성자 만들어줌
- @RequiredArgsConstructor // 파이널 가지고있는 아이만 생성자 만들어줌 injection way2
+@RequiredArgsConstructor // 파이널 가지고있는 아이만 생성자 만들어줌 injection way2
 public class MemberService {
 
     // injection way1
