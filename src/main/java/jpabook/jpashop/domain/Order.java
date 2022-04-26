@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER) // XtoOne 기본 전략은 FetchType.EAGER
+    @ManyToOne(fetch = FetchType.LAZY) // XtoOne 기본 전략은 FetchType.EAGER
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -30,6 +31,7 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL) // XtoMany 기본 전략은 FetchType.LAZY
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // XtoOne 기본 전략은 FetchType.EAGER
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
