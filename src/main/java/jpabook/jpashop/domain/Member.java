@@ -22,11 +22,9 @@ public class Member {
     @NotEmpty
     private String name;
 
-    @JsonIgnore
     @Embedded
     private Address address;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>(); // 하이버네이트는 엔티티를 영속화 할 때 컬렉션을 하이버네이트가 제공하는 내장 컬렉션으로 변경.
 

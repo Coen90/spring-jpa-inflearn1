@@ -31,7 +31,6 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL) // XtoMany 기본 전략은 FetchType.LAZY
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // XtoOne 기본 전략은 FetchType.EAGER
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
